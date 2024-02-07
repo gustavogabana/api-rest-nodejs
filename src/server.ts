@@ -3,7 +3,7 @@ import fastify from "fastify";
 const server = fastify()
 
 server.get('/hello', () => {
-    return 'Hello, World!'
+    return 'Hello, Node!'
 })
 
 server.listen({
