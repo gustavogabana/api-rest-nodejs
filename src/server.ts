@@ -5,7 +5,9 @@ import { transactionsRoutes } from "./routes/transactions";
 const server = fastify()
 
 // The order of the registration matters, fastify will execute in order
-server.register(transactionsRoutes)
+server.register(transactionsRoutes, {
+    prefix: 'transactions'
+})
 
 server.listen({
     port: env.PORT
