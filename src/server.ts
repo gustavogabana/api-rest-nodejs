@@ -1,20 +1,14 @@
-import fastify from "fastify";
-import { env } from "./env";
-import { transactionsRoutes } from "./routes/transactions";
-import cookie from '@fastify/cookie'
+import { env } from './env';
+import { app } from './app'
 
-const server = fastify()
-
-// The order of the registration matters, fastify will execute in order
-server.register(cookie)
-server.register(transactionsRoutes, {
-    prefix: 'transactions'
-})
-
-server.listen({
+app.listen({
     port: env.PORT
 }).then(() => {
-    console.log('HTTP Server Running at 3000!')
+    console.log('HTTP app Running at 3000!')
 }).catch((err) => {
     console.log(err)
 })
+
+// unit: ensure that a section of the application behaves as intended
+// integration: entegrates the units and test them as a group
+// end 2 end: verifies the functionality and performance of the application
